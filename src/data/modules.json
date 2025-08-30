@@ -1,0 +1,271 @@
+{
+  "modules": [
+    {
+      "id": 1,
+      "title": "The AI Lexicon",
+      "description": "Establish a common vocabulary for discussing AI, Machine Learning, and Deep Learning.",
+      "keyLearning": [
+        "Differentiate between AI, ML, and Deep Learning",
+        "Understand the spectrum of AI (ANI, AGI, ASI)",
+        "Identify the three core learning paradigms"
+      ],
+      "totalSteps": 4,
+      "steps": [
+        {
+          "id": 1,
+          "title": "How Memory Works",
+          "content": "Memory involves three key processes: encoding (taking in information), storage (keeping information), and retrieval (accessing stored information). Understanding these processes helps you develop better learning strategies.",
+          "quiz": {
+            "question": "The three key processes of memory are encoding, storage, and retrieval.",
+            "type": "boolean",
+            "correct": true
+          }
+        },
+        {
+          "id": 2,
+          "title": "The Forgetting Curve",
+          "content": "Hermann Ebbinghaus discovered that we forget most new information within hours if we don't review it. His 'forgetting curve' shows that regular review at increasing intervals dramatically improves long-term retention.",
+          "quiz": {
+            "question": "According to the forgetting curve, when should you first review new material?",
+            "type": "multiple",
+            "options": [
+              "After one month",
+              "Within 24 hours",
+              "After one week",
+              "Only before tests"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": 3,
+          "title": "Memory Techniques",
+          "content": "Powerful memory techniques include visualization, association, and the method of loci. These techniques work by connecting new information to existing memories and creating vivid mental images.",
+          "quiz": {
+            "question": "Which technique involves connecting new information to familiar locations?",
+            "type": "multiple",
+            "options": [
+              "Rote memorization",
+              "Method of loci",
+              "Speed reading",
+              "Highlighting"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": 4,
+          "title": "Spaced Repetition Systems",
+          "content": "Spaced repetition involves reviewing information at increasingly longer intervals. This technique leverages the psychological spacing effect to transfer information from short-term to long-term memory efficiently.",
+          "quiz": {
+            "question": "Spaced repetition involves reviewing information at decreasing intervals.",
+            "type": "boolean",
+            "correct": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "The Practitioner's Toolkit",
+      "description": "Survey the key models and algorithms that form the basis for most AI applications.",
+      "keyLearning": [
+        "Grasp the function of key models like Regression and Decision Trees",
+        "Understand the trade-off between model complexity and interpretability",
+        "Recognize which models are suited for which business problems"
+      ],
+      "totalSteps": 4,
+      "steps": [
+        {
+          "id": 1,
+          "title": "Understanding Attention",
+          "content": "Attention is like a muscle that can be trained and strengthened. In our digital age, our attention spans are constantly challenged by notifications, multitasking, and information overload.",
+          "quiz": {
+            "question": "Attention span can be improved through training and practice.",
+            "type": "boolean",
+            "correct": true
+          }
+        },
+        {
+          "id": 2,
+          "title": "The Pomodoro Technique",
+          "content": "The Pomodoro Technique involves working in focused 25-minute intervals followed by 5-minute breaks. This method helps maintain concentration while preventing mental fatigue.",
+          "quiz": {
+            "question": "In the Pomodoro Technique, how long are the focused work intervals?",
+            "type": "multiple",
+            "options": [
+              "15 minutes",
+              "25 minutes",
+              "45 minutes",
+              "60 minutes"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": 3,
+          "title": "Managing Digital Distractions",
+          "content": "Digital devices are designed to capture and hold our attention. Creating boundaries with technology, using app blockers, and establishing device-free zones are essential for deep learning.",
+          "quiz": {
+            "question": "Which strategy is most effective for managing digital distractions?",
+            "type": "multiple",
+            "options": [
+              "Keeping phone nearby but on silent",
+              "Using app blockers and device-free zones",
+              "Checking notifications every 10 minutes",
+              "Multitasking to be more efficient"
+            ],
+            "correct": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "AI Project Frameworks & Use Cases",
+      "description": "Learn the industry-standard process for managing data science projects from concept to deployment.",
+      "keyLearning": [
+        "Learn the 6 phases of the CRISP-DM framework",
+        "Analyze real-world case studies across industries",
+        "Identify potential AI use cases within your own function"
+      ],
+      "totalSteps": 4,
+      "steps": [
+        {
+          "id": 1,
+          "title": "What is Critical Thinking?",
+          "content": "Critical thinking is the ability to analyze information objectively and make reasoned judgments. It involves evaluating sources, identifying biases, and considering multiple perspectives.",
+          "quiz": {
+            "question": "Critical thinking involves only accepting information that confirms your existing beliefs.",
+            "type": "boolean",
+            "correct": false
+          }
+        },
+        {
+          "id": 2,
+          "title": "Identifying Cognitive Biases",
+          "content": "Cognitive biases are systematic errors in thinking that affect our decisions and judgments. Common biases include confirmation bias, anchoring bias, and availability heuristic.",
+          "quiz": {
+            "question": "Which bias involves seeking information that confirms existing beliefs?",
+            "type": "multiple",
+            "options": [
+              "Anchoring bias",
+              "Confirmation bias",
+              "Availability heuristic",
+              "Hindsight bias"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": 3,
+          "title": "The CRAAP Test",
+          "content": "The CRAAP test evaluates sources based on Currency, Relevance, Authority, Accuracy, and Purpose. This framework helps you assess the credibility and reliability of information.",
+          "quiz": {
+            "question": "The CRAAP test evaluates sources based on five criteria including currency and accuracy.",
+            "type": "boolean",
+            "correct": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "The Powerhouse: Hardware & LLMs",
+      "description": "Demystify the technology stack that powers modern AI, from GPUs to Large Language Models.",
+      "keyLearning": [
+        "Understand the role of specialized hardware (GPUs/TPUs)",
+        "Grasp the core concepts of Large Language Models",
+        "Explore the landscape of Generative AI"
+      ],
+      "totalSteps": 4,
+      "steps": [
+        {
+          "id": 1,
+          "title": "The Problem-Solving Process",
+          "content": "Effective problem-solving follows a structured approach: define the problem, gather information, generate alternatives, evaluate options, implement solutions, and monitor results.",
+          "quiz": {
+            "question": "The first step in problem-solving is to generate as many solutions as possible.",
+            "type": "boolean",
+            "correct": false
+          }
+        },
+        {
+          "id": 2,
+          "title": "Creative Problem Solving",
+          "content": "Creative problem-solving techniques include brainstorming, mind mapping, and lateral thinking. These approaches help you think outside conventional boundaries and discover innovative solutions.",
+          "quiz": {
+            "question": "Which technique encourages thinking outside conventional boundaries?",
+            "type": "multiple",
+            "options": [
+              "Linear thinking",
+              "Lateral thinking",
+              "Logical reasoning",
+              "Sequential analysis"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": 3,
+          "title": "Decision Making Frameworks",
+          "content": "Decision-making frameworks like the decision matrix, pros and cons analysis, and the 10-10-10 rule help you make better choices by systematically evaluating options.",
+          "quiz": {
+            "question": "The 10-10-10 rule asks you to consider how you'll feel about a decision in 10 minutes, 10 months, and 10 years.",
+            "type": "boolean",
+            "correct": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "The Responsible Futurist",
+      "description": "Address the critical ethical, social, and environmental impacts of artificial intelligence.",
+      "keyLearning": [
+        "Understand the challenges of algorithmic bias and transparency",
+        "Evaluate the environmental footprint of AI",
+        "Formulate principles for responsible AI deployment"
+      ],
+      "totalSteps": 4,
+      "steps": [
+        {
+          "id": 1,
+          "title": "The Growth Mindset",
+          "content": "A growth mindset, as defined by Carol Dweck, is the belief that abilities and intelligence can be developed through dedication and hard work. This mindset is crucial for continuous learning and improvement.",
+          "quiz": {
+            "question": "A growth mindset believes that intelligence and abilities are fixed traits.",
+            "type": "boolean",
+            "correct": false
+          }
+        },
+        {
+          "id": 2,
+          "title": "Building Learning Habits",
+          "content": "Consistent, small daily learning efforts compound over time. The key is to start small, be consistent, and gradually increase the complexity and duration of your learning activities.",
+          "quiz": {
+            "question": "Which approach is most effective for building learning habits?",
+            "type": "multiple",
+            "options": [
+              "Studying for hours only on weekends",
+              "Small, consistent daily efforts",
+              "Intensive cramming sessions",
+              "Learning only when motivated"
+            ],
+            "correct": 1
+          }
+        },
+        {
+          "id": 3,
+          "title": "Your Learning Journey Forward",
+          "content": "Congratulations on completing this program! Continue your learning journey by setting new goals, seeking challenges, and maintaining the habits you've developed. Remember, learning is a lifelong adventure.",
+          "quiz": {
+            "question": "Completing this program marks the end of your learning journey.",
+            "type": "boolean",
+            "correct": false
+          }
+        }
+      ]
+    }
+  ]
+}

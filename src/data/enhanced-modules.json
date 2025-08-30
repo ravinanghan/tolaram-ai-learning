@@ -1,0 +1,322 @@
+{
+  "version": "2.0.0",
+  "lastUpdated": "2024-01-15T10:00:00Z",
+  "globalSettings": {
+    "theme": "adaptive",
+    "defaultQuizSettings": {
+      "timeLimit": 300,
+      "showExplanation": true,
+      "allowRetries": false
+    }
+  },
+  "modules": [
+    {
+      "id": 1,
+      "title": "The AI Lexicon",
+      "description": "Establish a common vocabulary for discussing AI, Machine Learning, and Deep Learning.",
+      "keyLearning": [
+        "Differentiate between AI, ML, and Deep Learning",
+        "Understand the spectrum of AI (ANI, AGI, ASI)",
+        "Identify the three core learning paradigms"
+      ],
+      "totalSteps": 4,
+      "difficulty": "beginner",
+      "estimatedDuration": 45,
+      "category": "Fundamentals",
+      "tags": ["AI", "ML", "Deep Learning", "Terminology"],
+      "steps": [
+        {
+          "id": 1,
+          "title": "AI Spectrum & Classifications",
+          "content": "Understanding the different types of artificial intelligence and how they relate to each other.",
+          "hasCustomComponent": true,
+          "componentName": "AISpectrumVisualization",
+          "estimatedTime": 12,
+          "quiz": {
+            "id": "ai-spectrum-quiz",
+            "question": "Which type of AI can perform any intellectual task that a human can do?",
+            "type": "multiple",
+            "options": [
+              "Artificial Narrow Intelligence (ANI)",
+              "Artificial General Intelligence (AGI)", 
+              "Artificial Super Intelligence (ASI)",
+              "Machine Learning (ML)"
+            ],
+            "correct": 1,
+            "explanation": "AGI represents AI that matches human cognitive abilities across all domains.",
+            "points": 10,
+            "timeLimit": 60
+          },
+          "resources": [
+            {
+              "type": "interactive",
+              "title": "AI Timeline Explorer",
+              "url": "/interactive/ai-timeline"
+            },
+            {
+              "type": "article",
+              "title": "The Three Types of AI",
+              "content": "Detailed explanation of ANI, AGI, and ASI..."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Machine Learning Fundamentals",
+          "content": "Core concepts of machine learning and its relationship to artificial intelligence.",
+          "hasCustomComponent": true,
+          "componentName": "MLFundamentalsInteractive",
+          "estimatedTime": 15,
+          "quiz": {
+            "id": "ml-fundamentals-quiz",
+            "question": "Arrange these ML paradigms from least to most data requirement:",
+            "type": "dragdrop",
+            "items": [
+              { "id": "supervised", "content": "Supervised Learning", "correctPosition": 0 },
+              { "id": "unsupervised", "content": "Unsupervised Learning", "correctPosition": 1 },
+              { "id": "reinforcement", "content": "Reinforcement Learning", "correctPosition": 2 }
+            ],
+            "explanation": "Supervised learning typically requires the most labeled data, while reinforcement learning can learn through trial and error.",
+            "points": 15
+          }
+        },
+        {
+          "id": 3,
+          "title": "Deep Learning Architecture",
+          "content": "Understanding neural networks and deep learning principles.",
+          "hasCustomComponent": true,
+          "componentName": "NeuralNetworkVisualizer",
+          "estimatedTime": 10,
+          "quiz": {
+            "id": "deep-learning-quiz",
+            "question": "What makes deep learning 'deep'?",
+            "type": "text",
+            "correct": ["multiple layers", "many layers", "multiple hidden layers", "deep neural networks"],
+            "caseSensitive": false,
+            "explanation": "Deep learning gets its name from the multiple layers in neural networks.",
+            "points": 8
+          },
+          "resources": [
+            {
+              "type": "video",
+              "title": "Neural Networks Explained",
+              "url": "https://youtube.com/watch?v=example"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Real-World Applications",
+          "content": "Exploring how AI, ML, and Deep Learning are applied in various industries.",
+          "hasCustomComponent": false,
+          "estimatedTime": 8,
+          "quiz": {
+            "id": "applications-quiz",
+            "question": "AI applications are limited to technology companies only.",
+            "type": "boolean",
+            "correct": false,
+            "explanation": "AI is being applied across all industries including healthcare, finance, transportation, agriculture, and more.",
+            "points": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "The Practitioner's Toolkit",
+      "description": "Survey the key models and algorithms that form the basis for most AI applications.",
+      "keyLearning": [
+        "Grasp the function of key models like Regression and Decision Trees",
+        "Understand the trade-off between model complexity and interpretability",
+        "Recognize which models are suited for which business problems"
+      ],
+      "totalSteps": 4,
+      "difficulty": "intermediate",
+      "estimatedDuration": 60,
+      "category": "Technical",
+      "tags": ["Algorithms", "Models", "Machine Learning"],
+      "prerequisites": [1],
+      "steps": [
+        {
+          "id": 1,
+          "title": "Linear Models & Regression",
+          "content": "Understanding linear regression and its applications in predictive modeling.",
+          "hasCustomComponent": true,
+          "componentName": "RegressionInteractive",
+          "estimatedTime": 15,
+          "quiz": {
+            "id": "regression-quiz",
+            "question": "Adjust the regression line to minimize the error:",
+            "type": "interactive",
+            "componentName": "regressionLineAdjuster",
+            "data": {
+              "dataPoints": [[1, 2], [2, 4], [3, 6], [4, 8], [5, 10]],
+              "targetSlope": 2,
+              "targetIntercept": 0
+            },
+            "explanation": "The best fit line minimizes the sum of squared errors.",
+            "points": 20
+          }
+        },
+        {
+          "id": 2,
+          "title": "Decision Trees & Ensembles",
+          "hasCustomComponent": true,
+          "componentName": "DecisionTreeBuilder",
+          "estimatedTime": 18,
+          "quiz": {
+            "id": "decision-tree-quiz",
+            "question": "Build a decision tree to classify the given dataset:",
+            "type": "interactive",
+            "componentName": "decisionTreeBuilder",
+            "data": {
+              "dataset": "iris",
+              "features": ["sepal_length", "sepal_width", "petal_length", "petal_width"]
+            },
+            "points": 25
+          }
+        },
+        {
+          "id": 3,
+          "title": "Neural Networks Deep Dive",
+          "hasCustomComponent": true,
+          "componentName": "NeuralNetworkLab",
+          "estimatedTime": 20,
+          "quiz": {
+            "id": "neural-network-quiz",
+            "question": "What happens when you increase the number of hidden layers?",
+            "type": "multiple",
+            "options": [
+              "The model always becomes more accurate",
+              "The model may overfit to training data",
+              "Training time decreases",
+              "The model becomes simpler"
+            ],
+            "correct": 1,
+            "explanation": "More layers can lead to overfitting if not properly regulated.",
+            "points": 15
+          }
+        },
+        {
+          "id": 4,
+          "title": "Model Selection & Evaluation",
+          "content": "Learn how to choose the right model and evaluate its performance.",
+          "hasCustomComponent": false,
+          "estimatedTime": 7,
+          "quiz": {
+            "id": "evaluation-quiz",
+            "question": "What is the main purpose of cross-validation?",
+            "type": "multiple",
+            "options": [
+              "To make models run faster",
+              "To assess model performance on unseen data",
+              "To increase model complexity",
+              "To reduce training data"
+            ],
+            "correct": 1,
+            "explanation": "Cross-validation helps estimate how well a model will perform on new, unseen data.",
+            "points": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "AI Project Frameworks & Use Cases",
+      "description": "Learn the industry-standard process for managing data science projects from concept to deployment.",
+      "keyLearning": [
+        "Learn the 6 phases of the CRISP-DM framework",
+        "Analyze real-world case studies across industries",
+        "Identify potential AI use cases within your own function"
+      ],
+      "totalSteps": 4,
+      "difficulty": "intermediate",
+      "estimatedDuration": 55,
+      "category": "Project Management",
+      "tags": ["CRISP-DM", "Project Management", "Use Cases"],
+      "prerequisites": [1, 2],
+      "steps": [
+        {
+          "id": 1,
+          "title": "CRISP-DM Framework Overview",
+          "hasCustomComponent": true,
+          "componentName": "CRISPDMInteractive",
+          "estimatedTime": 12,
+          "quiz": {
+            "id": "crisp-dm-quiz",
+            "question": "Drag the CRISP-DM phases into the correct order:",
+            "type": "dragdrop",
+            "items": [
+              { "id": "business", "content": "Business Understanding", "correctPosition": 0 },
+              { "id": "data", "content": "Data Understanding", "correctPosition": 1 },
+              { "id": "preparation", "content": "Data Preparation", "correctPosition": 2 },
+              { "id": "modeling", "content": "Modeling", "correctPosition": 3 },
+              { "id": "evaluation", "content": "Evaluation", "correctPosition": 4 },
+              { "id": "deployment", "content": "Deployment", "correctPosition": 5 }
+            ],
+            "points": 20
+          }
+        },
+        {
+          "id": 2,
+          "title": "Industry Case Studies",
+          "hasCustomComponent": true,
+          "componentName": "CaseStudyExplorer",
+          "estimatedTime": 15,
+          "quiz": {
+            "id": "case-study-quiz",
+            "question": "Which industry benefit is correctly matched with its AI application?",
+            "type": "multiple",
+            "options": [
+              "Healthcare: Predictive maintenance",
+              "Manufacturing: Medical diagnosis",
+              "Finance: Fraud detection",
+              "Retail: Weather prediction"
+            ],
+            "correct": 2,
+            "points": 10
+          }
+        },
+        {
+          "id": 3,
+          "title": "Identifying AI Opportunities",
+          "hasCustomComponent": true,
+          "componentName": "OpportunityAssessment",
+          "estimatedTime": 18,
+          "quiz": {
+            "id": "opportunity-quiz",
+            "question": "Assess this business scenario for AI potential:",
+            "type": "interactive",
+            "componentName": "opportunityScorer",
+            "data": {
+              "scenario": "A retail company wants to predict customer churn",
+              "factors": ["data_availability", "business_impact", "technical_feasibility"]
+            },
+            "points": 25
+          }
+        },
+        {
+          "id": 4,
+          "title": "Implementation Roadmap",
+          "content": "Creating a realistic roadmap for AI implementation in your organization.",
+          "hasCustomComponent": false,
+          "estimatedTime": 10,
+          "quiz": {
+            "id": "roadmap-quiz",
+            "question": "What should be the first step in an AI implementation roadmap?",
+            "type": "multiple",
+            "options": [
+              "Buy the most advanced AI tools",
+              "Hire a team of data scientists",
+              "Assess current data infrastructure and quality",
+              "Start with the most complex use case"
+            ],
+            "correct": 2,
+            "explanation": "Understanding your data foundation is crucial before any AI implementation.",
+            "points": 10
+          }
+        }
+      ]
+    }
+  ]
+}

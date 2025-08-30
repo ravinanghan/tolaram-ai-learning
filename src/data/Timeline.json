@@ -1,0 +1,241 @@
+[
+  {
+    "category": "Algorithmic Advancements",
+    "color": "blue",
+    "events": [
+      {
+        "year": "1805",
+        "title": "Legendre lays the groundwork for machine learning",
+        "description": "French mathematician Adrien-Marie Legendre publishes the least square method for regression, which he used to determine, from astronomical observations, the orbits of bodies around the sun. Although this method was developed as a statistical framework, it would provide the basis for many of today's machine-learning models."
+      },
+      {
+        "year": "1958",
+        "title": "Rosenblatt develops the first self-learning algorithm",
+        "description": "American psychologist and computer scientist Frank Rosenblatt creates the perceptron algorithm, an early type of artificial neural network (ANN), which stands as the first algorithmic model that could learn on its own. American computer scientist Arthur Samuel would coin the term “machine learning” the following year for these types of self-learning models (as well as develop a groundbreaking checkers program seen as an early success in AI)."
+      },
+      {
+        "year": "1965",
+        "title": "Birth of deep learning",
+        "description": "Ukrainian mathematician Alexey Grigorevich Ivakhnenko develops the first general working learning algorithms for supervised multilayer artificial neural networks (ANNs), in which several ANNs are stacked on top of one another and the output of one ANN layer feeds into the next. The architecture is very similar to today's deep-learning architectures."
+      },
+      {
+        "year": "1986",
+        "title": "Backpropagation takes hold",
+        "description": "American psychologist David Rumelhart, British cognitive psychologist and computer scientist Geoffrey Hinton, and American computer scientist Ronald Williams publish on backpropagation, popularizing this key technique for training artificial neural networks (ANNs) that was originally proposed by American scientist Paul Werbos in 1982. Backpropagation allows the ANN to optimize itself without human intervention (in this case, it found features in family-tree data that weren’t obvious or provided to the algorithm in advance). Still, lack of computational power and the massive amounts of data needed to train these multilayered networks prevent ANNs leveraging backpropagation from being used widely."
+      },
+      {
+        "year": "1989",
+        "title": "Birth of CNNs for image recognition",
+        "description": "French computer scientist Yann LeCun, now director of AI research for Facebook, and others publish a paper describing how a type of artificial neural network called a convolutional neural network (CNN) is well suited for shape-recognition tasks. LeCun and team apply CNNs to the task of recognizing handwritten characters, with the initial goal of building automatic mail-sorting machines. Today, CNNs are the state-of-the-art model for image recognition and classification."
+      },
+      {
+        "year": "1992",
+        "title": "Upgraded SVMs provide early natural-language-processing solutions",
+        "description": "Computer engineers Bernhard E. Boser (Swiss), Isabelle M. Guyon (French), and Russian mathematician Vladimir N. Vapnik discover that algorithmic models called support vector machines (SVMs) can be easily upgraded to deal with nonlinear problems by using a technique called kernel trick, leading to widespread usage of SVMs in many natural-language-processing problems, such as classifying sentiment and understanding human speech."
+      },
+      {
+        "year": "1997",
+        "title": "RNNs get a “memory,” positioning them to advance speech to text",
+        "description": "In 1991, German computer scientist Sepp Hochreiter showed that a special type of artificial neural network (ANN) called a recurrent neural network (RNN) can be useful in sequencing tasks (speech to text, for example) if it could remember the behavior of part sequences better. In 1997, Hochreiter and fellow computer scientist Jürgen Schmidhuber solve the problem by developing long short-term memory (LSTM). Today, RNNs with LSTM are used in many major speechrecognition applications."
+      },
+      {
+        "year": "1998",
+        "title": "Brin and Page publish PageRank algorithm",
+        "description": "The algorithm, which ranks web pages higher the more other web pages link to them, forms the initial prototype of Google’s search engine. This brainchild of Google founders Sergey Brin and Larry Page revolutionizes Internet searches, opening the door to the creation and consumption of more content and data on the World Wide Web. The algorithm would also go on to become one of the most important for businesses as they vie for attention on an increasingly sprawling Internet."
+      },
+      {
+        "year": "2006",
+        "title": "Hinton reenergizes the use of deep-learning models",
+        "description": "To speed the training of deeplearning models, Geoffrey Hinton develops a way to pretrain them with a deep-belief network (a class of neural network) before employing backpropagation. While his method would become obsolete when computational power increased to a level that allowed for efficient deep-learning-model training, Hinton’s work popularized the use of deep learning worldwide—and many credit him with coining the phrase “deep learning.”"
+      }
+    ]
+  },
+  {
+    "category": "Explosion of Data",
+    "color": "green",
+    "events": [
+      {
+        "year": "1991",
+        "title": "Opening of the World Wide Web",
+        "description": "The European Organization for Nuclear Research (CERN) begins opening up the World Wide Web to the public."
+      },
+      {
+        "year": "Early 2000s",
+        "title": "Broadband adoption begins among home Internet users",
+        "description": "Broadband allows users access to increasingly speedy Internet connections, up from the paltry 56 kbps available for downloading through dial-up in the late 1990s. Today, available broadband speeds can surpass 100 mbps (1 mbps = 1,000 kbps). Bandwidthhungry applications like YouTube could not have become commercially viable without the advent of broadband."
+      },
+      {
+        "year": "2004",
+        "title": "Facebook debuts",
+        "description": "Harvard student Mark Zuckerberg and team launch “Thefacebook,” as it was originally dubbed. By the end of 2005, the number of data-generating Facebook users approaches six million."
+      },
+      {
+        "year": "2004",
+        "title": "Web 2.0 hits its stride, launching the era of usergenerated data",
+        "description": "Web 2.0 refers to the shifting of the Internet paradigm from passive content viewing to interactive and collaborative content creation, social media, blogs, video, and other channels. Publishers Tim O’Reilly and Dale Dougherty popularize the term, though it was coined by designer Darcy DiNucci in 1999."
+      },
+      {
+        "year": "2005",
+        "title": "YouTube debuts",
+        "description": "Within about 18 months, the site would serve up almost 100 million views per day"
+      },
+      {
+        "year": "2005",
+        "title": "Number of Internet users worldwide passes one-billion mark",
+        "description": ""
+      },
+      {
+        "year": "2007",
+        "title": "Introduction of the iPhone propels smartphone revolution—and amps up data generation",
+        "description": "Apple cofounder and CEO Steve Jobs introduces the iPhone in January 2007. The total number of smartphones sold in 2007 reaches about 122 million. The era of around-the-clock consumption and creation of data and content by smartphone users begins."
+      }
+    ]
+  },
+  {
+    "category": "Exponential increases in computing power and storage",
+    "color": "yellow",
+    "events": [
+      {
+        "year": "1965",
+        "title": "Moore recognizes exponential growth in chip power",
+        "description": "Intel cofounder Gordon Moore notices that the number of transistors per square inch on integrated circuits has doubled every year since their invention. His observation becomes Moore’s law, which predicts the trend will continue into the foreseeable future (although it later proves to do so roughly every 18 months). At the time, state-of-the-art computational speed is in the order of three million floatingpoint operations per second (FLOPS)."
+      },
+      {
+        "year": "1997",
+        "title": "Increase in computing power drives IBM’s Deep Blue victory over Garry Kasparov",
+        "description": "Deep Blue’s success against the world chess champion largely stems from masterful engineering and the tremendous power computers possess at that time. Deep Blue’s computer achieves around 11 gigaFLOPS (11 billion FLOPS)."
+      },
+      {
+        "year": "1999",
+        "title": "More computing power for AI algorithms arrives … but no one realizes it yet",
+        "description": "Nvidia releases the GeForce 256 graphics card, marketed as the world’s first true graphics processing unit (GPU). The technology will later prove fundamental to deep learning by performing computations much faster than computer processing units (CPUs)."
+      },
+      {
+        "year": "2002",
+        "title": "Amazon brings cloud storage and computing to the masses",
+        "description": "Amazon launches its Amazon Web Services, offering cloud-based storage and computing power to users. Cloud computing would come to revolutionize and democratize data storage and computation, giving millions of users access to powerful IT systems—previously only available to big tech companies—at a relatively low cost."
+      },
+      {
+        "year": "2004",
+        "title": "Dean and Ghemawat introduce the MapReduce algorithm to cope with data explosion",
+        "description": "With the World Wide Web taking off, Google seeks out novel ideas to deal with the resulting proliferation of data. Computer scientist Jeff Dean (current head of Google Brain) and Google software engineer Sanjay Ghemawat develop MapReduce to deal with immense amounts of data by parallelizing processes across large data sets using a substantial number of computers."
+      },
+      {
+        "year": "2005",
+        "title": "Cost of one gigabyte of disk storage drops to $0.79, from $277 ten years earlier",
+        "description": "And the price of DRAM, a type of random-access memory (RAM) commonly used in PCs, drops to $158 per gigabyte, from $31,633 in 1995."
+      },
+      {
+        "year": "2006",
+        "title": "Cutting and Cafarella introduce Hadoop to store and process massive amounts of data",
+        "description": "Inspired by Google’s MapReduce, computer scientists Doug Cutting and Mike Cafarella develop the Hadoop software to store and process enormous data sets. Yahoo uses it first, to deal with the explosion of data coming from indexing web pages and online data."
+      }
+    ]
+  },
+  {
+    "category": "all mixed",
+    "color": "mix",
+    "events": [
+      {
+        "year": "2009",
+        "title": "UC Berkeley introduces Spark to handle big data models more efficiently",
+        "description": "Developed by Romanian-Canadian computer scientist Matei Zaharia at UC Berkeley’s AMPLab, Spark streams huge amounts of data leveraging RAM, making it much faster at processing data than software that must read/write on hard drives. It revolutionizes the ability to update big data and perform analytics in real time"
+      },
+      {
+        "year": "2009",
+        "title": "Ng uses GPUs to train deep-learning models more effectively",
+        "description": "American computer scientist Andrew Ng and his team at Stanford University show that training deep-belief networks with 100 million parameters on GPUs is more than 70 times faster than doing so on CPUs, a finding that would reduce training that once took weeks to only one day."
+      },
+      {
+        "year": "2010",
+        "title": "Number of smartphones sold in the year nears 300 million",
+        "description": "This represents a nearly 2.5 times increase over the number sold in 2007."
+      },
+      {
+        "year": "2010",
+        "title": "Worldwide IP traffic exceeds 20 exabytes (20 billion gigabytes) per month",
+        "description": "Internet protocol (IP) traffic is aided by growing adoption of broadband, particularly in the United States, where adoption reaches 65 percent, according to Cisco, which reports this monthly figure and the annual figure of 242 exabytes."
+      },
+      {
+        "year": "2010",
+        "title": "Microsoft and Google introduce their clouds",
+        "description": "Cloud computing and storage take another step toward ubiquity when Microsoft makes Azure available and Google launches its Google Cloud Storage (the Google Cloud Platform would come online about a year later)"
+      },
+      {
+        "year": "2011",
+        "title": "IBM Watson beats Jeopardy!",
+        "description": "IBM’s question answering system, Watson, defeats the two greatest Jeopardy! champions, Brad Rutter and Ken Jennings, by a significant margin. IBM Watson uses ten racks of IBM Power 750 servers capable of 80 teraFLOPS (that’s 80 trillion FLOPS—the state of the art in the mid-1960s was around three million FLOPS)"
+      },
+      {
+        "year": "2012",
+        "title": "Number of Facebook users hits one billion",
+        "description": "The amount of data processed by the company’s systems soars past 500 terabytes."
+      },
+      {
+        "year": "2012",
+        "title": "Google demonstrates the effectiveness of deep learning for image recognition",
+        "description": "Google uses 16,000 processors to train a deep artificial neural network with one billion connections on ten million randomly selected YouTube video thumbnails over the course of three days. Without receiving any information about the images, the network starts recognizing pictures of cats, marking the beginning of significant advances in image recognition"
+      },
+      {
+        "year": "2012",
+        "title": "Deep-learning system wins renowned image-classification contest for the first time",
+        "description": "Geoffrey Hinton’s team wins ImageNet’s image-classification competition by a large margin, with an error rate of 15.3 percent versus the second-best error rate of 26.2 percent, using a convolutional neural network (CNN). Hinton’s team trained its CNN on 1.2 million images using two GPU cards."
+      },
+      {
+        "year": "2013",
+        "title": "DeepMind teaches an algorithm to play Atari using reinforcement learning and deep learning",
+        "description": "While reinforcement learning dates to the late 1950s, it gains in popularity this year when Canadian research scientist Vlad Mnih from DeepMind (not yet a Google company) applies it in conjunction with a convolutional neural network to play Atari video games at superhuman levels."
+      },
+      {
+        "year": "2014",
+        "title": "Number of mobile devices exceeds number of humans",
+        "description": "As of October 2014, GSMA reports the number of mobile devices at around 7.22 billion, while the US Census Bureau reports the number of people globally at around 7.20 billion."
+      },
+      {
+        "year": "2017",
+        "title": "Electronic-device users generate 2.5 quintillion bytes of data per day",
+        "description": "According to this estimate, about 90 percent of the world’s data were produced in the past two years. And, every minute, YouTube users watch more than four million videos and mobile users send more than 15 million texts."
+      },
+      {
+        "year": "2017",
+        "title": "Google introduces upgraded TPU that speeds machine-learning processes",
+        "description": "Google first introduced its tensor processing unit (TPU) in 2016, which it used to run its own machine-learning models at a reported 15 to 30 times faster than GPUs and CPUs. In 2017, Google announced an upgraded version of the TPU that was faster (180 million teraFLOPS— more when multiple TPUs are combined), could be used to train models in addition to running them, and would be offered to the paying public via the cloud. TPU availability could spawn even more (and more powerful and efficient) machinelearning-based business applications."
+      },
+      {
+        "year": "2017",
+        "title": "AlphaZero beats AlphaGo Zero after learning to play three different games in less than 24 hours",
+        "description": "While creating AI software with full general intelligence remains decades off (if possible at all), Google’s DeepMind takes another step closer to it with AlphaZero, which learns three computer games: Go, chess, and shogi. Unlike AlphaGo Zero, which received some instruction from human experts, AlphaZero learns strictly by playing itself, and then goes on to defeat its predecessor AlphaGo Zero at Go (after eight hours of self-play) as well as some of the world’s best chess- and shogi-playing computer programs (after four and two hours of self-play, respectively)."
+      },
+      {
+        "year": "2017",
+        "title": "Ashish Vaswani introduces transformers, improving language processing",
+        "description": "During the NeurIPS 2017 conference, Ashish Vaswani introduces this simple network architecture that enables significantly faster training of natural-language-processing models, paving the way for better and quicker language translation, speech recognition, and document summarization, among other language tasks."
+      },
+      {
+        "year": "2018",
+        "title": "Facebook open-sources PyTorch, speeding development of deep-learning applications",
+        "description": "PyTorch provides researchers and developers with a seamless, single framework to more rapidly prototype deep-learning models and move them from research to production, significantly accelerating the development of deep-learning applications."
+      },
+      {
+        "year": "2018",
+        "title": "European Union passes the General Data Protection Regulation (GDPR) legislation",
+        "description": "This ground-breaking data-privacy regulation passed by the European Union in April 2016 goes into effect on May 25, 2018. GDPR governs all forms of personal data held by an organization and aims to give individuals control over their personal data. The law eventually becomes a model for many national data laws outside of the EU region. The law imposes strict penalties for any violations by companies across the world."
+      },
+      {
+        "year": "2018",
+        "title": "Deepfake videos begin surfacing in earnest",
+        "description": "A series of deepfake videos, realistic videos produced using generative adversarial networks (GANs) and autoencoders, begin surfacing on the internet, raising alarms about the dangers of inauthentic content influencing internet users. Examples include videos in which one actor’s face was replaced with those of others and completely fabricated videos of famous figures delivering speeches that did not actually occur"
+      },
+      {
+        "year": "2018",
+        "title": "Google AI introduces BERT, significantly improving natural language processing",
+        "description": "Jacob Devlin’s team from Google AI publishes and open-sources a new language-representation model called BERT, short for bidirectional encoder representations from transformers. BERT redefines the state of the art for many natural-language-processing tasks by reading an entire sequence of words at once, unlike prior language-representation models, which read the text input either from left to right or right to left sequentially. Chatbots, sentiment analytics, and other tasks receive a significant bump in speed and performance as a result."
+      },
+      {
+        "year": "2020",
+        "title": "OpenAI releases GPT-3, paving the way for improved natural language generation",
+        "description": "In May 2020, OpenAI researchers describe the creation of the third generation of the GPT (generative pre-trained transformer) language model, which increases its capacity for natural language generation by more than two magnitudes over its predecessor, GPT-2 (released in 2018). In June 2020, OpenAI gives limited access to select users to test the limits of the new model. According to these users, GPT-3 is capable of creating near-human written content, such as new articles and code to develop a website, with a minimal number of user prompts."
+      }
+    ]
+  }
+]
