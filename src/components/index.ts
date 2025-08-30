@@ -40,6 +40,10 @@ export { default as TimelineIntroCard } from './TimelineIntroCard';
 // Theme Components
 export { default as ThemeToggle } from './ThemeToggle';
 
+// Firebase Components
+export { default as MigrationPrompt } from './MigrationPrompt';
+export { default as FirebaseStatus } from './FirebaseStatus';
+
 // Week Components
 export * from './week1/index';
 export { default as WeekComponent } from './WeekComponent';

@@ -6,6 +6,8 @@ export interface User {
   name: string;
   email: string;
   loginTime: string;
+  createdAt?: string;
+  lastLoginAt?: string;
 }
 
 export interface Quiz {

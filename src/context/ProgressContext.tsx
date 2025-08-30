@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode } from 'react';
 import type { Progress, ProgressContextType, ModulesData, StepState, QuizAnswer } from '@/types/global';
-import { storage } from '@/utils/storage';
-import { STORAGE_KEYS } from '@/types';
+import { useAuth } from './AuthContext';
+import { useFirebaseProgress } from '@/hooks/useFirebaseProgress';
 import { isWeekTimeLocked, getWeekLockInfo } from '@/utils/weekLocking';
 import { StepStateManager } from '@/utils/stepStateManager';
 import modulesData from '@/data/modules.json';
@@ -20,107 +20,26 @@ interface ProgressProviderProps {
   children: ReactNode;
 }
 
-const initialProgress: Progress = {
-  completedModules: [],
-  currentModule: 1,
-  currentStep: 1,
-  moduleProgress: {},
-  lastActiveSession: Date.now()
-};
 
 export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) => {
-  const [progress, setProgress] = useState<Progress>(initialProgress);
-
-  useEffect(() => {
-    const initializeProgress = () => {
-      try {
-        const savedProgress = storage.get<Progress>(STORAGE_KEYS.PROGRESS);
-        if (savedProgress) {
-          setProgress(savedProgress);
-        }
-      } catch (error) {
-        console.error('Error initializing progress:', error);
-      }
-    };
-
-    initializeProgress();
-  }, []);
-
-  const saveProgress = (newProgress: Progress): void => {
-    try {
-      setProgress(newProgress);
-      storage.set(STORAGE_KEYS.PROGRESS, newProgress);
-    } catch (error) {
-      console.error('Error saving progress:', error);
-    }
-  };
-
-  const completeStep = (moduleId: number, stepId: number): void => {
-    const newProgress = { ...progress };
-    
-    if (!newProgress.moduleProgress[moduleId]) {
-      newProgress.moduleProgress[moduleId] = {
-        completedSteps: [],
-        stepStates: {},
-        currentStep: 1,
-        startedAt: Date.now()
-      };
-    }
-    
-    // Update step state to completed
-    const currentStepState = newProgress.moduleProgress[moduleId]!.stepStates[stepId] || 
-      StepStateManager.createStepState(stepId);
-    
-    const updatedStepState = StepStateManager.updateStepState(currentStepState, {
-      completed: true
-    });
-    
-    newProgress.moduleProgress[moduleId] = StepStateManager.updateModuleProgress(
-      newProgress.moduleProgress[moduleId]!,
-      stepId,
-      updatedStepState
-    );
-
-    saveProgress(newProgress);
-  };
-
-  const completeModule = (moduleId: number): void => {
-    const newProgress = { ...progress };
-    
-    if (!newProgress.completedModules.includes(moduleId)) {
-      newProgress.completedModules.push(moduleId);
-    }
-
-    // Stay on Week 1 as the only unlocked module
-    newProgress.currentModule = 1;
-    newProgress.currentStep = 1;
-
-    saveProgress(newProgress);
-  };
+  const { user } = useAuth();
+  const firebaseProgress = useFirebaseProgress(user?.id || null);
 
   const updateCurrentPosition = (moduleId: number, stepId: number): void => {
-    const newProgress = { ...progress };
-    newProgress.currentModule = moduleId;
-    newProgress.currentStep = stepId;
-    saveProgress(newProgress);
+    // Update current position in Firebase
+    firebaseProgress.updateStepState(moduleId, stepId, {
+      lastAccessed: Date.now()
+    });
   };
 
   const isModuleUnlocked = (moduleId: number): boolean => {
     // Only Week 1 is unlocked for now
     const unlocked = moduleId === 1;
-    console.log(`Module ${moduleId} unlock check (Week1-only mode):`, { unlocked });
     return unlocked;
   };
 
   const isModuleCompleted = (moduleId: number): boolean => {
-    return progress.completedModules.includes(moduleId);
-  };
-
-  const getModuleProgress = (moduleId: number): number => {
-    const moduleData = progress.moduleProgress[moduleId];
-    const totalSteps = getModuleStepCount(moduleId);
-    
-    return StepStateManager.calculateModuleProgress(moduleData || null, totalSteps);
+    return firebaseProgress.progress.completedModules.includes(moduleId);
   };
 
   const getModuleStepCount = (moduleId: number): number => {
@@ -131,12 +50,12 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
 
   const getOverallProgress = (): number => {
     const totalModules = 6;
-    const completedModules = progress.completedModules.length;
+    const completedModules = firebaseProgress.progress.completedModules.length;
     return totalModules > 0 ? (completedModules / totalModules) * 100 : 0;
   };
 
   const hasInProgress = (): boolean => {
-    return progress.currentStep > 1 || Object.keys(progress.moduleProgress).length > 0;
+    return firebaseProgress.progress.currentStep > 1 || Object.keys(firebaseProgress.progress.moduleProgress).length > 0;
   };
 
   // Add function to get week lock information
@@ -144,156 +63,63 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     return getWeekLockInfo(moduleId);
   };
 
-  // Enhanced functionality methods
-  const updateStepState = (moduleId: number, stepId: number, state: Partial<StepState>): void => {
-    const newProgress = { ...progress };
-    
-    if (!newProgress.moduleProgress[moduleId]) {
-      newProgress.moduleProgress[moduleId] = {
-        completedSteps: [],
-        stepStates: {},
-        currentStep: 1,
-        startedAt: Date.now()
-      };
-    }
-    
-    const currentStepState = newProgress.moduleProgress[moduleId]!.stepStates[stepId] || 
-      StepStateManager.createStepState(stepId);
-    
-    const updatedStepState = StepStateManager.updateStepState(currentStepState, state);
-    
-    newProgress.moduleProgress[moduleId] = StepStateManager.updateModuleProgress(
-      newProgress.moduleProgress[moduleId]!,
-      stepId,
-      updatedStepState
-    );
-    
-    // Update current position if progressing forward
-    if (stepId > newProgress.currentStep && moduleId === newProgress.currentModule) {
-      newProgress.currentStep = stepId;
-    }
-    
-    newProgress.lastActiveSession = Date.now();
-    saveProgress(newProgress);
-  };
-
-  const getStepState = (moduleId: number, stepId: number): StepState | null => {
-    const moduleData = progress.moduleProgress[moduleId];
-    return moduleData?.stepStates?.[stepId] || null;
-  };
-
-  const isStepAttempted = (moduleId: number, stepId: number): boolean => {
-    const stepState = getStepState(moduleId, stepId);
-    return StepStateManager.isStepAttempted(stepState);
-  };
-
-  const saveQuizAnswer = (moduleId: number, stepId: number, answer: QuizAnswer): void => {
-    updateStepState(moduleId, stepId, {
-      quizAnswer: answer,
-      completed: answer.isCorrect
-    });
-  };
-
   const clearQuizAnswer = (moduleId: number, stepId: number): void => {
-    // Get current step state
-    const currentState = getStepState(moduleId, stepId);
+    const currentState = firebaseProgress.getStepState(moduleId, stepId);
     
     // Create a new state without the quiz answer
-    const newState = {
-      id: stepId,
+    const newState: Partial<StepState> = {
       completed: false,
       videoWatched: currentState?.videoWatched || false,
       pdfDownloaded: currentState?.pdfDownloaded || false,
-      lastAccessed: Date.now(),
-      timeSpent: currentState?.timeSpent || 0
+      lastAccessed: Date.now()
     };
     
-    // Update the step state completely
-    const newProgress = { ...progress };
-    
-    if (!newProgress.moduleProgress[moduleId]) {
-      newProgress.moduleProgress[moduleId] = {
-        completedSteps: [],
-        stepStates: {},
-        currentStep: 1,
-        startedAt: Date.now()
-      };
-    }
-    
-    // Replace the step state entirely
-    newProgress.moduleProgress[moduleId]!.stepStates[stepId] = newState;
-    
-    // Update completed steps array
-    newProgress.moduleProgress[moduleId] = StepStateManager.updateModuleProgress(
-      newProgress.moduleProgress[moduleId]!,
-      stepId,
-      newState
-    );
-    
-    newProgress.lastActiveSession = Date.now();
-    saveProgress(newProgress);
+    // Update via Firebase
+    firebaseProgress.updateStepState(moduleId, stepId, newState);
   };
 
   const getQuizAnswer = (moduleId: number, stepId: number): QuizAnswer | null => {
-    const stepState = getStepState(moduleId, stepId);
+    const stepState = firebaseProgress.getStepState(moduleId, stepId);
     return stepState?.quizAnswer || null;
   };
 
-  const canNavigateToStep = (moduleId: number, stepId: number): boolean => {
-    if (!isModuleUnlocked(moduleId)) return false;
-    
-    const moduleData = progress.moduleProgress[moduleId];
-    return StepStateManager.canNavigateToStep(moduleData || null, stepId);
-  };
-
   const getNextIncompleteStep = (moduleId: number): number | null => {
-    const moduleData = progress.moduleProgress[moduleId];
+    const moduleData = firebaseProgress.progress.moduleProgress[moduleId];
     const totalSteps = getModuleStepCount(moduleId);
     
     return StepStateManager.getNextIncompleteStep(moduleData || null, totalSteps);
   };
 
-  const getCurrentPosition = (): { moduleId: number; stepId: number } => {
-    // Get the actual current position based on progress
-    const currentModuleId = progress.currentModule;
-    const nextIncompleteStep = getNextIncompleteStep(currentModuleId);
-    
-    return {
-      moduleId: currentModuleId,
-      stepId: nextIncompleteStep || progress.currentStep
-    };
-  };
-
   const markVideoWatched = (moduleId: number, stepId: number, watched: boolean): void => {
-    updateStepState(moduleId, stepId, { videoWatched: watched });
+    firebaseProgress.updateStepState(moduleId, stepId, { videoWatched: watched });
   };
 
   const markPdfDownloaded = (moduleId: number, stepId: number, downloaded: boolean): void => {
-    updateStepState(moduleId, stepId, { pdfDownloaded: downloaded });
+    firebaseProgress.updateStepState(moduleId, stepId, { pdfDownloaded: downloaded });
   };
 
   const value: ProgressContextType = {
-    progress,
-    completeStep,
-    completeModule,
+    progress: firebaseProgress.progress,
+    completeStep: firebaseProgress.completeStep,
+    completeModule: firebaseProgress.completeModule,
     updateCurrentPosition,
     isModuleUnlocked,
     isModuleCompleted,
-    getModuleProgress,
+    getModuleProgress: firebaseProgress.getModuleProgress,
     getOverallProgress,
     hasInProgress,
     getWeekLockInformation,
     
     // Enhanced functionality
-    updateStepState,
-    getStepState,
-    isStepAttempted,
-    saveQuizAnswer,
+    updateStepState: firebaseProgress.updateStepState,
+    getStepState: firebaseProgress.getStepState,
+    isStepAttempted: firebaseProgress.isStepAttempted,
+    saveQuizAnswer: firebaseProgress.saveQuizAnswer,
     clearQuizAnswer,
     getQuizAnswer,
-    canNavigateToStep,
+    canNavigateToStep: firebaseProgress.canNavigateToStep,
     getNextIncompleteStep,
-    getCurrentPosition,
+    getCurrentPosition: firebaseProgress.getCurrentPosition,
     markVideoWatched,
     markPdfDownloaded
   };

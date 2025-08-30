@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode } from 'react';
 import type { User, AuthContextType } from '@/types/global';
-import { storage } from '@/utils/storage';
-import { STORAGE_KEYS } from '@/types';
+import { useFirebaseAuth } from '@/hooks/useFirebaseAuth';
+import type { LoginData, RegisterData } from '@/firebase/auth';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -17,68 +17,35 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
+// Enhanced AuthContextType for Firebase
+interface FirebaseAuthContextType extends AuthContextType {
+  register: (data: RegisterData) => Promise<void>;
+  error: string | null;
+  clearError: () => void;
+}
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const firebaseAuth = useFirebaseAuth();
 
-  useEffect(() => {
-    const initializeAuth = () => {
-      try {
-        const savedUser = storage.get<User>(STORAGE_KEYS.USER);
-        if (savedUser) {
-          setUser(savedUser);
-        }
-      } catch (error) {
-        console.error('Error initializing auth:', error);
-      } finally {
-        setIsLoading(false);
-      }
+  // Wrapper for login to maintain compatibility with existing code
+  const login = async (data?: LoginData): Promise<void> => {
+    // If no data provided, use demo credentials for backward compatibility
+    const loginData = data || {
+      email: 'demo@tolaram.com',
+      password: 'demo123'
     };
-
-    initializeAuth();
-  }, []);
-
-  const login = async (): Promise<void> => {
-    try {
-      setIsLoading(true);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      const userData: User = {
-        id: '1',
-        name: 'User',
-        email: 'user@example.com',
-        loginTime: new Date().toISOString()
-      };
-      
-      setUser(userData);
-      storage.set(STORAGE_KEYS.USER, userData);
-    } catch (error) {
-      console.error('Login error:', error);
-      throw error;
-    } finally {
-      setIsLoading(false);
-    }
+    
+    return firebaseAuth.login(loginData);
   };
 
-  const logout = (): void => {
-    try {
-      setUser(null);
-      storage.remove(STORAGE_KEYS.USER);
-      storage.remove(STORAGE_KEYS.PROGRESS);
-      storage.remove(STORAGE_KEYS.THEME);
-    } catch (error) {
-      console.error('Logout error:', error);
-    }
-  };
-
-  const value: AuthContextType = {
-    user,
+  const value: FirebaseAuthContextType = {
+    user: firebaseAuth.user,
     login,
-    logout,
-    isAuthenticated: !!user,
-    isLoading
+    logout: firebaseAuth.logout,
+    isAuthenticated: firebaseAuth.isAuthenticated,
+    isLoading: firebaseAuth.isLoading,
+    register: firebaseAuth.register,
+    error: firebaseAuth.error,
+    clearError: firebaseAuth.clearError
   };
 
   return (
