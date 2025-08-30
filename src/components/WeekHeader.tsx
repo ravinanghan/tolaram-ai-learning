@@ -25,11 +25,14 @@ const WeekHeader: React.FC<WeekHeaderProps> = ({
     const navigate = useNavigate();
 
     const handleBack = () => {
+        console.log('WeekHeader: Back button clicked', { onBack: !!onBack });
         if (onBack) {
+            console.log('WeekHeader: Calling onBack callback');
             onBack();
-            return;
+        } else {
+            console.log('WeekHeader: No onBack callback, navigating to dashboard');
+            navigate('/dashboard');
         }
-        navigate('/dashboard');
     };
 
     return (

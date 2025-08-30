@@ -15,8 +15,10 @@ const Week1: React.FC = () => {
   const { getCurrentPosition, getModuleProgress, completeModule, updateCurrentPosition } = useProgress();
 
   const handleBack = () => {
+    console.log('Week1: handleBack called');
     // Persist the user's last position in Week 1 before leaving
     const position = getCurrentPosition();
+    console.log('Week1: Current position before back:', position);
     if (position.moduleId === 1) {
       updateCurrentPosition(1, position.stepId);
       // If the week is effectively complete, ensure completion is recorded
@@ -25,6 +27,7 @@ const Week1: React.FC = () => {
         completeModule(1);
       }
     }
+    console.log('Week1: Navigating to dashboard');
     navigate('/dashboard');
   };
 
@@ -60,7 +63,7 @@ const Week1: React.FC = () => {
           requireQuizCompletion: true,
           autoAdvanceOnComplete: false
         }}
-        enableDebugMode={true}
+        enableDebugMode={false}
       >
         <Step1 />
         <Step2 />

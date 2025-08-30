@@ -30,15 +30,17 @@ const WeekHeader: React.FC<WeekHeaderProps> = ({
         // Prevent default if event is provided (for links)
         if (e) {
             e.preventDefault();
+            e.stopPropagation();
         }
         
+        console.log('WeekHeader: handleBack called', { onBack: !!onBack });
         if (onBack) {
+            console.log('WeekHeader: Executing onBack callback');
             onBack();
-            return;
+        } else {
+            console.log('WeekHeader: No onBack provided, navigating to dashboard');
+            navigate('/dashboard');
         }
-        
-        // Navigate to dashboard
-        navigate('/dashboard');
     };
 
     return (

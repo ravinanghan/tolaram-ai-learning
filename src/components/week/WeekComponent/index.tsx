@@ -59,9 +59,12 @@ const WeekComponentContent: React.FC<WeekComponentProps & { maxSteps: number }> 
     const { currentStep, isTransitioning, goToNextStep, goToPrevStep } = useWeekNavigation();
     
     const handleBack = React.useCallback(() => {
+        console.log('WeekComponentContent: handleBack called', { currentStep, callbacks: !!callbacks });
         if (currentStep > 1) {
+            console.log('WeekComponentContent: Going to previous step');
             goToPrevStep();
         } else {
+            console.log('WeekComponentContent: Calling callbacks.onBack');
             callbacks?.onBack?.();
         }
     }, [currentStep, goToPrevStep, callbacks]);
